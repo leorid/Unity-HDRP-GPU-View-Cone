@@ -250,7 +250,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
+  - {fileID: 2100000, guid: b519ca4b4bb73f54f8d9c84d360b5930, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -427,7 +427,7 @@ MonoBehaviour:
   _templateMaterial: {fileID: 2100000, guid: fe4ff4bd16e7d9d41b565e99facf8a88, type: 2}
   _depthTexture: {fileID: 0}
   _decalMat: {fileID: 0}
-  checkFields: 1
+  _instanceID: 0
 --- !u!114 &1181526256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -502,7 +502,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
+  - {fileID: 2100000, guid: b519ca4b4bb73f54f8d9c84d360b5930, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
