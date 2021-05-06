@@ -14,7 +14,7 @@ The performance cost should be like having a spotlight with shadows turned on.
 
 > Example Scene
 
-![](images/Complex Scene.jpg)
+![](images/ComplexScene.jpg)
 
 > Complex Scene, not included
 
