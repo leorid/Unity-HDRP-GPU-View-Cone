@@ -1,13 +1,10 @@
 # Unity-HDRP-GPU-View-Cone
+08.03.2025 - Updated to Unity V 6.0.x, because of changes to assets (example scene, shadergraph-shader), compatibility with previous Unity Versions cannot be guranteed.
+
 View Cone, Field of View, Sight Cone - done with custom Shadow Mapping in Unity HDRP
-
-Please Check the Issue Page - since the latest few HDRP Upgrades the system doesn't work in builds anymore.
-So consider this repo just for learning purposes on how to theoretically set up custom shadow mapping.
-
 
 This Repository contains GPU View Cones for Unity HDRP.
 Created in V2020.3.6f1, HDRP V10.4.0
-
 
 
 Have a look at the example Scene and the "Enemy" Prefab - you can have as many view cones as you want to.
