@@ -12,6 +12,7 @@ public class MatrixSetter : MonoBehaviour
 		SetMatrix();
 	}
 
+	[ContextMenu("SetMatrix")]
 	public void SetMatrix()
 	{
 		if (!_decalProjector)

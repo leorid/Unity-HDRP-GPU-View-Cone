@@ -10,7 +10,7 @@ namespace JL
 	{
 		[Header("View Cone Settings")]
 		[SerializeField] Color _color = Color.yellow;
-		[SerializeField, Range(0, 10)] float _viewDistance = 5;
+		[SerializeField, Range(0, 1000)] float _viewDistance = 5;
 		[SerializeField, Range(0, 180)] float _angle = 45;
 
 		[Header("Editor Settings")]
@@ -22,6 +22,8 @@ namespace JL
 		[SerializeField] DecalProjector _decalProjector;
 		[SerializeField] MatrixSetter _matrixSetter;
 		[SerializeField] Material _templateMaterial;
+		[SerializeField] Renderer _debugQuad;
+		[SerializeField] Material _debugQuadDefaultMat;
 
 		[Header("ReadOnly")]
 		[SerializeField] RenderTexture _depthTexture;
@@ -41,7 +43,7 @@ namespace JL
 				return;
 			}
 
-			if(_instanceID != gameObject.GetInstanceID())
+			if (_instanceID != gameObject.GetInstanceID())
 			{
 				_depthTexture = null;
 				_decalMat = null;
@@ -70,9 +72,17 @@ namespace JL
 			// create a depth texture for this object
 			if (!_depthTexture)
 			{
-				_depthTexture = new RenderTexture(_enemyCam.pixelWidth, _enemyCam.pixelHeight, 24, RenderTextureFormat.Depth);
+				_depthTexture = new RenderTexture(_enemyCam.pixelWidth * 2, _enemyCam.pixelHeight * 2, 24, RenderTextureFormat.Depth);
 				_depthTexture.name = gameObject.name + " RT";
 				_depthTexture.Create();
+			}
+
+			if (_debugQuad)
+			{
+				MaterialPropertyBlock mpb = new MaterialPropertyBlock();
+				mpb.SetTexture("_BaseColorMap", _depthTexture);
+
+				_debugQuad.SetPropertyBlock(mpb);
 			}
 
 			// create a new material to set the texture for this object
@@ -95,14 +105,19 @@ namespace JL
 				_depthTexture.Release();
 #if UNITY_EDITOR
 				DestroyImmediate(_depthTexture);
+#else
+				Destroy(_depthTexture);
 #endif
 			}
 			if (_decalMat)
 			{
 #if UNITY_EDITOR
 				DestroyImmediate(_decalMat);
+#else
+				Destroy(_decalMat);
 #endif
 			}
+			_instanceID = 0;
 		}
 
 		bool CheckFields()
